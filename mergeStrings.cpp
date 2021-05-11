@@ -26,56 +26,56 @@ using namespace std;
 
 string mergeStrings(string s1, string s2)
 {
-	string ans;
-	char ch1[26] = {0};
-	char ch2[26] = {0};
+    string ans;
+    char ch1[26] = {0};
+    char ch2[26] = {0};
 
-	for (char x : s1)
-		++ch1[x - 97];
-	for (char x : s2)
-		++ch2[x - 97];
+    for (char x : s1)
+        ++ch1[x - 97];
+    for (char x : s2)
+        ++ch2[x - 97];
 
-	string::iterator it1 = s1.begin();
-	string::iterator it2 = s2.begin();
+    string::iterator it1 = s1.begin();
+    string::iterator it2 = s2.begin();
 
-	while (1) {
-		if (it1 != s1.end() && it2 != s2.end()) {	
-			if (ch1[*it1 - 97] < ch2[*it2 - 97]) {
-				ans.push_back(*it1);
-				++it1;
-			}
-			else if ( ch1[*it1-97] > ch2[*it2-97] ) {
-				ans.push_back(*it2);
-				++it2;
-			}
-			else if (*it1 <= *it2) {
-				ans.push_back(*it1);
-				++it1;
-			}
-			else {
-				ans.push_back(*it2);
-				++it2;
-			}
-		}
-		else if (it1 != s1.end()) {
-			ans.push_back(*it1);
-			++it1;
-		}
-		else if (it2 != s2.end()) {
-			ans.push_back(*it2);
-			++it2;
-		}
-		else
-			break;
-	}
+    while (1) {
+        if (it1 != s1.end() && it2 != s2.end()) {    
+            if (ch1[*it1 - 97] < ch2[*it2 - 97]) {
+                ans.push_back(*it1);
+                ++it1;
+            }
+            else if ( ch1[*it1-97] > ch2[*it2-97] ) {
+                ans.push_back(*it2);
+                ++it2;
+            }
+            else if (*it1 <= *it2) {
+                ans.push_back(*it1);
+                ++it1;
+            }
+            else {
+                ans.push_back(*it2);
+                ++it2;
+            }
+        }
+        else if (it1 != s1.end()) {
+            ans.push_back(*it1);
+            ++it1;
+        }
+        else if (it2 != s2.end()) {
+            ans.push_back(*it2);
+            ++it2;
+        }
+        else
+            break;
+    }
 
-	return ans;
+    return ans;
 }
 
 int main(int argc, char* argv[])
 {
-	cout << mergeStrings("super","tower");
-	cout << mergeStrings("dec", "cccbd");
+    cout << mergeStrings("super","tower")<<endl;
+    cout << mergeStrings("dec", "cccbd")<<endl;
 
-	return 0;
+    return 0;
 }
