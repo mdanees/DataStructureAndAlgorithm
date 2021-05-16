@@ -4,7 +4,7 @@
 #include <vector>
 
 using namespace std;
-#define MAX_BIT 128
+#define MAX_BIT 256 
 
 bool incrementBinaryNumber(bitset<MAX_BIT>& bit)
 {
@@ -23,12 +23,15 @@ bool incrementBinaryNumber(bitset<MAX_BIT>& bit)
 vector<int> incrementBinaryNumber(string num, vector<char>& opr)
 {
     bitset<MAX_BIT> bit(num);
+    
     vector<int> ret;
     for(char c : opr) {
         if(c == '?')
             ret.push_back(bit.count());
 	else if (c == '+')
             incrementBinaryNumber(bit);
+
+	//cout << bit.to_ullong() << endl;
     }
 
     return ret;
