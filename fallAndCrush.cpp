@@ -170,13 +170,50 @@ vector<vector<char>> fallAndCrush(vector<vector<char>> board, vector<vector<int>
 
 int main()
 {
-	vector<int> arr1 = { 1, 5, 4, 3, 2, 8 };
-	vector<vector<int>> pieces1 = { {1, 5, 5},{3, 2},{8} };*/
-	
-	vector<int> arr2 = { 1, 2, 5, 3 };
-	vector<vector<int>> pieces2 = { {5},{1, 2},{3} };
+	vector<vector<char>> board1 = { {'.', '#', '#', '#', '*'},
+								{'#', '#', '.', '#', '#'},
+								{'.', '.', '.', '#', '.'},
+								{'.', '.', '*', '*', '#'},
+								{'*', '#', '.', '.', '*'},
+								{'.', '*', '.', '.', '.'} };
 
-	cout << shuffleThePieces(arr1, pieces1) << endl;
-	cout << shuffleThePieces(arr2, pieces2) << endl;
+	vector<vector<int>> strengths1 = { {0, 0, 0, 0, 2},
+									{0, 0, 0, 0, 0},
+									{0, 0, 0, 0, 0},
+									{0, 0, 1, 1, 0},
+									{3, 0, 0, 0, 1},
+									{0, 2, 0, 0, 0} };
+
+	vector<vector<char>> board2 = { {'#', '#', '#'},
+		 {'#', '#', '#'},
+		 {'#', '#', '#'},
+		 {'.', '.', '.'},
+		 {'*', '*', '*'},
+		 {'*', '*', '*'},
+		 {'*', '*', '*'} };
+
+	vector<vector<int>> strengths2 = { {0, 0, 0},
+				 {0, 0, 0},
+				 {0, 0, 0},
+				 {0, 0, 0},
+				 {1, 3, 2},
+				 {2, 1, 3},
+				 {3, 2, 1} };
+
+	vector<vector<char>> ans1 = fallAndCrush(board1, strengths1);
+	vector<vector<char>> ans2 = fallAndCrush(board2, strengths2);
+	
+	for(auto v : ans1) {
+		for(char c : v)
+			cout << c << " ";
+		cout << endl;
+	}
+
+	for(auto v : ans2) {
+		for(char c : v)
+			cout << c << " ";
+		cout << endl;
+	}
+	
 	return 0;
 }

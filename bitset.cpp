@@ -22,11 +22,7 @@ public:
 
     bool test(size_t _Pos) {
         assert(_Pos < m_size);
-
-        int high = _Pos / sizeof(ULONG);
-        int low = _Pos % sizeof(ULONG);
-        ULONG val = m_data[high];
-        return (val >> low) & 1;
+		return ((m_data[_Pos / sizeof(ULONG)] & (1U << (_Pos % sizeof(ULONG)))) != 0);
     }
 
     void set(size_t _Pos) {
@@ -62,11 +58,11 @@ int main(int argc, char* a[])
 {
     CBitset bit(32);
     bit.set(10);
-    cout << bit.test(10) << endl;
+    cout << "set(10)\t\t" << bit.test(10) << endl;
     bit.reset(10);
-    cout << bit.test(10) << endl;
+    cout << "reset(10)\t" << bit.test(10) << endl;
     bit.flip(10);
-    cout << bit.test(10) << endl;
+    cout << "flip(10)\t" << bit.test(10) << endl;
 
 	return 0;
 }

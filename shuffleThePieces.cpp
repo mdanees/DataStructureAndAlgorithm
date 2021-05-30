@@ -98,7 +98,14 @@ bool shuffleThePieces(std::vector<int> arr, std::vector<std::vector<int>> pieces
 
 int main()
 {
+	vector<int> arr1 = { 1, 5, 4, 3, 2, 8 };
+	vector<vector<int>> pieces1 = { {1, 5, 5},{3, 2},{8} };
+	
+	vector<int> arr2 = { 1, 2, 5, 3 };
+	vector<vector<int>> pieces2 = { {5},{1, 2},{3} };
 
+	cout << shuffleThePieces(arr1, pieces1) << endl;
+	cout << shuffleThePieces(arr2, pieces2) << endl;
 	return 0;
 }
 
